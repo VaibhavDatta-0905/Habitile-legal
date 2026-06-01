@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habitile · Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #0F1115;
+      --surface: #171A21;
+      --border: #2A2F3A;
+      --text: #E6E8EC;
+      --secondary: #9AA3B2;
+      --primary: #6366F1;
+      --accent: #22D3EE;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366F1, #4F46E5);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0;
+      font-weight: 800;
+    }
+    .subtitle {
+      color: var(--secondary);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    h2 {
+      font-size: 18px;
+      margin: 32px 0 8px;
+      font-weight: 700;
+    }
+    p, li {
+      color: var(--text);
+      font-size: 15px;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    li { margin-bottom: 6px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      margin-top: 48px;
+      color: var(--secondary);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="badge">⚡</div>
+      <div>
+        <h1>Habitile · Privacy Policy</h1>
+        <div class="subtitle">Last updated: <span id="date">June 1, 2026</span></div>
+      </div>
+    </header>
+
+    <div class="card">
+      <strong>Short version:</strong> Habitile keeps everything you log on
+      your own phone. We don't run any server. We don't collect, see, or
+      sell your data. The only optional cloud feature is a backup to
+      <em>your</em> Google Drive, encrypted on your phone before it
+      leaves — even Google can't read it.
+    </div>
+
+    <h2>What data Habitile stores on your device</h2>
+    <p>
+      Habitile keeps the following in a private SQLite database file on
+      your phone, accessible only to the app:
+    </p>
+    <ul>
+      <li>Your username and a hashed copy of your memorable word.</li>
+      <li>Activity logs, expenses, monthly budgets, and personal targets you create.</li>
+      <li>The most recent quote of the day, cached so the app works offline.</li>
+      <li>Your preferences (theme, custom categories, etc.).</li>
+    </ul>
+    <p>
+      This data never leaves your phone unless you explicitly enable the
+      optional Drive backup described below.
+    </p>
+
+    <h2>Optional Google Drive backup</h2>
+    <p>
+      If you choose to enable backups in <code>Settings → Backups</code>,
+      Habitile asks for permission to use a single private folder in your
+      Google Drive (the
+      <a href="https://developers.google.com/drive/api/guides/appdata">App Data folder</a>).
+      Files in this folder are <strong>invisible in your normal Drive UI
+      and unreadable by other apps</strong>.
+    </p>
+    <p>
+      Before any backup leaves your phone, Habitile encrypts it with
+      AES-256-GCM using a key derived from your memorable word. As a
+      result:
+    </p>
+    <ul>
+      <li>Habitile (the developer) can never read your backups.</li>
+      <li>Google can never read your backups.</li>
+      <li>If you forget your memorable word, the backup cannot be restored.</li>
+    </ul>
+    <p>
+      You can disconnect Google Drive at any time from the same Settings
+      screen. Habitile only ever reads or writes its own App Data folder
+      — never the rest of your Drive.
+    </p>
+
+    <h2>External services Habitile contacts</h2>
+    <p>
+      To keep features useful without any backend of our own, the app
+      makes anonymous HTTPS requests directly from your phone to:
+    </p>
+    <ul>
+      <li>
+        <a href="https://zenquotes.io">zenquotes.io</a> and
+        <a href="https://dummyjson.com">dummyjson.com</a> — for the daily
+        motivational quote.
+      </li>
+      <li>
+        <a href="https://www.exchangerate-api.com">open.er-api.com</a> —
+        for the currency converter's daily exchange rates.
+      </li>
+      <li>
+        <a href="https://drive.google.com">drive.google.com</a> — only if
+        you've enabled Drive backup.
+      </li>
+    </ul>
+    <p>
+      These requests do not include any personal information about you
+      or what you've logged. They are identical to what any anonymous
+      visitor to those services would send.
+    </p>
+
+    <h2>Permissions Habitile requests</h2>
+    <ul>
+      <li><strong>Internet</strong> — to make the requests above.</li>
+      <li><strong>Biometric / fingerprint</strong> — only if you enable
+        biometric unlock. The biometric check is performed by Android
+        itself; Habitile never sees your fingerprint.</li>
+    </ul>
+
+    <h2>Your control over your data</h2>
+    <ul>
+      <li>
+        <strong>Delete everything</strong> at any time from
+        <code>Settings → Wipe all data</code>. This erases the entire
+        local database; no backup of it remains except (optionally) the
+        encrypted file in your Drive App Data folder.
+      </li>
+      <li>
+        <strong>Disconnect Google Drive</strong> from
+        <code>Settings → Backups</code>. You can also revoke Habitile's
+        Drive access in your
+        <a href="https://myaccount.google.com/permissions">Google account
+        permissions</a>.
+      </li>
+      <li>
+        <strong>Uninstall the app</strong> — Android removes the entire
+        on-device database. If you've never enabled Drive backup, no
+        copy of your data remains anywhere.
+      </li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>
+      Habitile is not directed at children under 13. We do not knowingly
+      collect any data from anyone — including children — because we do
+      not collect data at all.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If we ever change what Habitile does with your data, we'll update
+      this page and bump the "Last updated" date at the top. Material
+      changes will be flagged in the app on first launch after the
+      change.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions or concerns? Email
+      <a href="mailto:REPLACE_WITH_YOUR_EMAIL@example.com">REPLACE_WITH_YOUR_EMAIL@example.com</a>.
+    </p>
+
+    <footer>
+      Habitile is built and maintained as a personal project. This privacy
+      policy is intentionally short because the app's data model is
+      intentionally simple.
+    </footer>
+  </main>
+</body>
+</html>
